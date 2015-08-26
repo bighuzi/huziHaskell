@@ -136,5 +136,19 @@ module Main where
 	--reconsider the code above
 
 	-- scanl (+) [1,2,3,4]
-	sqrtSum::[Int]
-	sqrtSum =takeWhile (<10000) (scanl1 (+) (map sqrt [1..]))
+	-- sqrtSum::[Int]
+	-- sqrtSum =takeWhile (<10000) (scanl1 (+) (map sqrt [1..]))
+
+	data Person = Person {firstName::String
+						 ,lastName::String
+						 ,age::Int
+						 ,height::Float
+						 ,phoneNumber::String
+						 ,flavor::String} deriving(Show)
+
+ 	-- data Bool = False|True
+ 	-- data Int  = -10|...|-1|0|1|...|10
+ 	data Shape = Circle Float Float Float|Rectangle Float Float Float Float  deriving (Show)
+ 	
+						 
+	

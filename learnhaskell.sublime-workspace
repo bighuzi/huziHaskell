@@ -3,6 +3,10 @@
 	{
 		"selected_items":
 		[
+			[
+				"Fra",
+				"factorial"
+			]
 		]
 	},
 	"buffers":
@@ -12,6 +16,25 @@
 			{
 				"buffer_size": 0,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "module Main where\n	main = putStrLn \"Hello World!\"\n	\n	adjective =[\"fast\",\"slow\",\"bright\",\"dark\"]\n	nouns =[\"frog\",\"fish\",\"cat\"]\n	name =[x++\" \"++y|x<-adjective,y<-nouns]\n	c = [x^2|x<-[1..20],odd x,x/=5]\n	l1 = [1]++[2]	--together\n	l2 = 1:[2,3]	--add head\n	l3 = [1,2,3]!!2 --from 0 \n	l4 = [1]>[2]	--\n	l5 = head c\n	l6 = tail c\n	l7 = last c\n	l8 = init c\n\n	l9 = length c\n	l10= null c\n	l11= reverse c\n	l12= take	2 c\n	l13= drop 3\n	l14= minimum c\n	l15= maximum c\n	l16= sum c\n	l17= product c\n	l18= elem 1 c\n	l19= cycle [1,2,3]\n	l20= repeat c\n	t1=(1,2)\n	foo ::[Char]->[Char]\n	foo x = x ++ \" \"\n	factorial :: Integer -> Integer\n	factorial n = product[1..n]\n\n	lucky::(Integral a) => a-> String\n	lucky 7 =\"Lucky\"\n	lucky x =\"sorry,you are not lucky enough\"\n\n	len'::[a]->Integer\n	len' [] =0\n	len' xss@(_:xs) = 1+(len' xs)\n\n	len''::(Eq a)=>[a]->Integer\n	len'' xss\n		| xss==[] =0\n		| otherwise =1+(len'' (tail xss))\n\n	calcBmi::(RealFloat a)=>[(a,a)]->[a]\n	calcBmi xs = [bmi|(height,weight)<-xs,let bmi = weight/height^2,bmi>20]\n\n	maximum' :: (Ord a)=>[a]->a\n	maximum' [] = error\"Error,No Maximum\"\n	maximum' [x]=x\n	maximum' (x:xs) =max x (maximum' xs)	\n\n	replicate' :: Int->a->[a]\n	replicate' n a\n		| n<=0 = []\n		|otherwise = a:replicate' (n-1) a\n\n	reverse' ::[a]->[a]\n	reverse' [] = []\n	reverse' (x:xs)=reverse' (xs) ++[x]\n\n	zip' ::[a]->[a]->[(a,a)]\n	zip' _ [] =[]\n	zip' [] _ = []\n	zip' (x:xs) (y:ys) =(x,y):zip' xs ys\n\n	elem' ::(Eq a)=>a->[a]->Bool\n	elem' x [] = False\n	elem' x (y:ys) \n		|x==y = True\n		|otherwise = elem' x ys\n\n	quicksort :: (Ord a)=>[a]->[a]\n	quicksort [] 		=[]\n	quicksort (a:xs) 	=\n		let smaller 	=[y|y<-xs,y<a];\n			larger 		=[y|y<-xs,y>=a]\n		in quicksort smaller++[a]++ quicksort larger	\n\n	quicksort' ::(Ord a)=>[a]->[a]\n	quicksort' []	=[]	\n	quicksort' (a:xs) =\n		let 	small = [x|x<-xs,x<=a];\n				large = [x|x<-xs,x>a]\n		in 	quicksort small ++ [a]++quicksort large\n\n--Thinking calculate the char number of a String\n\n	comparetohundred :: Int->Ordering\n	comparetohundred = compare 100\n\n	divideByten :: (Fractional a)=> a->a\n	divideByten =(10/)\n\n--elem a->([a]->Bool)\n	isUpperAlpha::Char->Bool\n	isUpperAlpha =(`elem` ['A'..'Z'])\n	\n	twicefun::(a->a)->a->a\n	twicefun f x = f (f x)\n\n	zipWith'::(a->b->c)->[a]->[b]->[c]\n	zipWith' _ _ [] =[]\n	zipWith' _ [] _ =[]\n	zipWith' f (a:as) (b:bs) = f a b : zipWith' f as bs\n\n	flip''::(a->b->c)->(b->a->c)\n	flip'' f  = g\n		where g x y = f y x\n\n	flip'::(a->b->c)->b->a->c\n	flip' f x y = f y x\n\n	map'::(a->b)->[a]->[b]\n	map' _ [] =[]\n	map' f (a:as)= f a : map' f as\n\n	filter'::(a->Bool)->[a]->[a]\n	filter' _ [] =[]\n	filter' f (a:as) \n		|f a  		= a : filter' f as\n		|otherwise 	= filter' f as\n--fold something\n--foldl,foldr,fold::[a]\n	sum'fold::Num a => [a]->a\n	sum'fold xs =foldl (+) 0 xs\n\n	sum''fold ::Num a =>[a]->a\n	sum''fold = foldl (\\acc x ->acc+x) 0 \n\n	map'fold::(a->b)->[a]->[b]\n	map'fold f = foldr (\\x acc->f x:acc) []\n	--reconsider the code above\n\n	-- scanl (+) [1,2,3,4]\n	sqrtSum::[Int]\n	sqrtSum =takeWhile (<10000) (scanl1 (+) (map sqrt [1..]))\n	",
+			"file": "1.hs",
+			"file_size": 3125,
+			"file_write_time": 130772063519743658,
+			"settings":
+			{
+				"buffer_size": 2988,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Administrator/Documents/Tencent Files/183569890/FileRecv/tbc99996msg.lua",
+			"settings":
+			{
+				"buffer_size": 13824,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -24,6 +47,10 @@
 			[
 				"pcip",
 				"Package Control: Install Package"
+			],
+			[
+				"hskell",
+				"Set Syntax: Haskell"
 			],
 			[
 				"package",
@@ -62,15 +89,26 @@
 	},
 	"distraction_free":
 	{
-		"menu_visible": true,
-		"show_minimap": false,
+		"menu_visible": false,
+		"show_minimap": true,
 		"show_open_files": false,
-		"show_tabs": false,
+		"show_tabs": true,
 		"side_bar_visible": false,
-		"status_bar_visible": false
+		"status_bar_visible": true
 	},
 	"file_history":
 	[
+		"/E/Dota2/steamapps/common/dota 2 beta/game/dota_addons/qw/scripts/vscripts/addon_game_mode.lua",
+		"/E/Dota2/steamapps/common/dota 2 beta/game/dota_addons/qw/scripts/vscripts/lina_dragon_slave_lua.lua",
+		"/E/Dota2/steamapps/common/dota 2 beta/game/dota_addons/qw/scripts/vscripts/modifier_furion_force_of_nature_lua.lua",
+		"/E/Dota2/steamapps/common/dota 2 beta/game/dota_addons/qw/scripts/vscripts/modifier_furion_teleportation_lua.lua",
+		"/E/Dota2/steamapps/common/dota 2 beta/game/dota_addons/qw/scripts/vscripts/modifier_pudge_rot_lua.lua",
+		"/E/Dota2/steamapps/common/dota 2 beta/game/dota_addons/qw/scripts/vscripts/modifier_furion_wrath_of_nature_thinker_lua.lua",
+		"/E/Dota2/steamapps/common/dota 2 beta/game/dota_addons/qw/scripts/vscripts/lina_laguna_blade_lua.lua",
+		"/E/Dota2/steamapps/common/dota 2 beta/game/dota_addons/qw/scripts/vscripts/lina_light_strike_array_lua.lua",
+		"/E/Dota2/steamapps/common/dota 2 beta/game/dota_addons/qw/scripts/vscripts/lina_fiery_soul_lua.lua",
+		"/C/Users/Administrator/Desktop/backdoor.txt",
+		"/E/haskell/huziHaskell/1.hs",
 		"/C/Users/Administrator/AppData/Roaming/Sublime Text 2/Packages/Terminal/Terminal.sublime-settings",
 		"/C/Users/Administrator/AppData/Roaming/Sublime Text 2/Packages/Terminal/Default (Windows).sublime-keymap",
 		"/C/Users/Administrator/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
@@ -79,7 +117,7 @@
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
@@ -93,6 +131,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"takeWhile",
+			"xs",
+			"zipWith",
+			"x",
+			"lucky",
+			"	"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -110,7 +154,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -137,12 +181,61 @@
 						"zoom_level": 1.0
 					},
 					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "1.hs",
+					"settings":
+					{
+						"buffer_size": 2988,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2376,
+								2376
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Haskell/Haskell.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1260.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/Users/Administrator/Documents/Tencent Files/183569890/FileRecv/tbc99996msg.lua",
+					"settings":
+					{
+						"buffer_size": 13824,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								42,
+								42
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 210.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
 				}
-			]
-		},
-		{
-			"sheets":
-			[
 			]
 		}
 	],
@@ -163,18 +256,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.5,
 			1.0
 		],
 		"rows":
@@ -184,6 +270,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
 	"replace":
 	{
 		"height": 0.0
@@ -202,13 +292,17 @@
 		"height": 500.0,
 		"selected_items":
 		[
+			[
+				"",
+				"/E/haskell/huziHaskell/learnhaskell.sublime-project"
+			]
 		],
 		"width": 380.0
 	},
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": true,
+	"side_bar_visible": false,
 	"side_bar_width": 150.0,
 	"status_bar_visible": true
 }
